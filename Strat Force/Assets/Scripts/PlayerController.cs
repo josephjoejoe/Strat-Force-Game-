@@ -1,17 +1,11 @@
 using UnityEngine;
-using System.Collections;
 
-public class TileGrid : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    public GameObject[] tiles;
-
-    public string TileTag = "Tile";
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        tiles = GameObject.FindGameObjectsWithTag(TileTag);
+        
     }
 
     // Update is called once per frame
