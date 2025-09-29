@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class FreeLookOrbit : MonoBehaviour
 {
-    public Transform target;                // The player
-    public Vector3 offset = new Vector3(0, 2, -6); // Default camera position relative to player
+    public Transform target;                
+    public Vector3 offset = new Vector3(0, 2, -6); 
     public float rotationSpeed = 5f;
     public float minYAngle = 10f;
     public float maxYAngle = 80f;
@@ -35,6 +35,6 @@ public class FreeLookOrbit : MonoBehaviour
 
         // Apply position and rotation
         transform.position = desiredPosition;
-        transform.LookAt(target.position + Vector3.up * 1.5f); // Look at player's chest
+        transform.LookAt(target.position + Vector3.up * 1.5f); 
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,12 @@ public class PlayerController : MonoBehaviour
     public GameObject bullet;
     public Transform bulletPos;
 
+
     public float raylength = 5;
+    public bool isEnemy;
+
+    private const string interactableTag = "Enemy";
+
 
     [SerializeField] private float playerHeightOffset = 1f;
 
@@ -34,9 +40,21 @@ public class PlayerController : MonoBehaviour
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         if(Physics.Raycast(transform.position, forward, out hit, raylength))
         {
-            Shoot();
+            if (hit.collider.CompareTag(interactableTag))
+            {
+                Shoot();
+                isEnemy = true;
+            }
+            else
+            {
+                isEnemy = false;
+            }
         }
+
+
     }
+       
+    
 
     void HandleMouseClick()
     {
@@ -107,6 +125,7 @@ public class PlayerController : MonoBehaviour
         isMoving = false;
     }
 
+    
 
     void Shoot()
     {
